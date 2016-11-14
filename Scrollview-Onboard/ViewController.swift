@@ -17,21 +17,17 @@ class ViewController: UIViewController {
     var imageViews = [UIImageView]()
     let colorView = UIView()
     
-    let images = [UIImage(named: "login1"), UIImage(named: "login2"), UIImage(named: "login1")]
+    let images = [UIImage(named: "login1"), UIImage(named: "login2"), UIImage(named: "login3")]
     let strings = ["Description text 1", "Description text 2", "Description text 3"]
     
-    
     // MARK: - View's lifecycle methods
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
     }
     
-    
     // MARK: - Configure scrollView for scrolling animation
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -67,7 +63,6 @@ class ViewController: UIViewController {
         self.scrollView.addSubview(colorView)
     }
     
-    
     func changePage(sender: AnyObject) -> () {
         let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
@@ -77,9 +72,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UIScrollViewDelegate {
     
-    
     // MARK: - Handle scroll events
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Vertical
@@ -94,7 +87,6 @@ extension ViewController: UIScrollViewDelegate {
         
         scrollViewdidScrollToPercentageOffset(scrollView: scrollView, percentageOffset: CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset))
     }
-    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
@@ -112,7 +104,6 @@ extension ViewController: UIScrollViewDelegate {
         }
     }
     
-    
     func scrollViewdidScrollToPercentageOffset(scrollView: UIScrollView, percentageOffset: CGPoint) {
         var colors : [UIColor] = [.magenta, .blue, .red]
         
@@ -123,9 +114,7 @@ extension ViewController: UIScrollViewDelegate {
         }
     }
     
-
     // MARK: - Calculate current color for animation
-    
     
     func fadeFromColor(fromColor: UIColor, toColor: UIColor, withPercentage: CGFloat) -> UIColor {
         
